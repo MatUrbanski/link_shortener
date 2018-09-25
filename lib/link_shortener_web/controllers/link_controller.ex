@@ -38,6 +38,10 @@ defmodule LinkShortenerWeb.LinkController do
     end
   end
 
+  def update(_conn, %{}) do
+    {:error, :invalid_params}
+  end
+
   def delete(conn, %{"id" => id}) do
     link = Links.get_link!(id)
 

@@ -96,6 +96,24 @@ defmodule LinkShortenerWeb.LinkControllerTest do
                "url" => ["can't be blank"]
              }
     end
+
+    test "renders errors when link params are not present", %{conn: conn} do
+      link = create(:link)
+      conn = put(conn, link_path(conn, :update, link))
+
+      assert json_response(conn, 422)["errors"] == %{
+               "detail" => "Invalid params."
+             }
+    end
+
+    test "renders errors when id is invalid", %{conn: conn} do
+      response =
+        assert_error_sent(:not_found, fn ->
+          put(conn, link_path(conn, :update, "test"), link: %{url: ""})
+        end)
+
+      assert {404, [_h | _t], "{\"errors\":{\"detail\":\"Not Found\"}}"} = response
+    end
   end
 
   describe "delete link" do
