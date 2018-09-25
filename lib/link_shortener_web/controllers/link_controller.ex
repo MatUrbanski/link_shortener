@@ -26,6 +26,7 @@ defmodule LinkShortenerWeb.LinkController do
 
   def show(conn, %{"id" => id}) do
     link = Links.get_link!(id)
+
     render(conn, "show.json", link: link)
   end
 
