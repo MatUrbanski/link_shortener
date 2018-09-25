@@ -11,7 +11,6 @@ defmodule LinkShortenerWeb.LinkView do
   end
 
   def render("link.json", %{link: link}) do
-    %{id: link.hash,
-      url: link.url}
+    %{id: link.hash, url: link.url}
   end
 end

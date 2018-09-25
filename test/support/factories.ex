@@ -13,6 +13,6 @@ defmodule LinkShortener.Factories do
   end
 
   def create(factory_name, attributes \\ []) do
-    Repo.insert! build(factory_name, attributes)
+    Repo.insert!(build(factory_name, attributes))
   end
 end

@@ -7,17 +7,14 @@ defmodule LinkShortenerWeb.ErrorViewTest do
   import Phoenix.View
 
   test "renders 404.json" do
-    assert render(ErrorView, "404.json", []) ==
-           %{errors: %{detail: "Not Found"}}
+    assert render(ErrorView, "404.json", []) == %{errors: %{detail: "Not Found"}}
   end
 
   test "renders 500.json" do
-    assert render(ErrorView, "500.json", []) ==
-           %{errors: %{detail: "Internal Server Error"}}
+    assert render(ErrorView, "500.json", []) == %{errors: %{detail: "Internal Server Error"}}
   end
 
   test "renders 422.json" do
-    assert render(ErrorView, "422.json", []) ==
-           %{errors: %{detail: "Invalid params."}}
+    assert render(ErrorView, "422.json", []) == %{errors: %{detail: "Invalid params."}}
   end
 end

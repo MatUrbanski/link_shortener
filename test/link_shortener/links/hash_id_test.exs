@@ -5,7 +5,7 @@ defmodule LinkShortener.HashIdTest do
 
   describe "type/0" do
     test "it returns :string" do
-      assert HashId.type == :string
+      assert HashId.type() == :string
     end
   end
 
@@ -53,7 +53,7 @@ defmodule LinkShortener.HashIdTest do
 
   describe "autogenerate/0" do
     test "it generates unique hash_id" do
-      hash_id = HashId.autogenerate
+      hash_id = HashId.autogenerate()
 
       assert String.length(hash_id) == 10
     end

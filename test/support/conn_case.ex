@@ -27,13 +27,13 @@ defmodule LinkShortenerWeb.ConnCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(LinkShortener.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(LinkShortener.Repo, {:shared, self()})
     end
+
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
-
 end

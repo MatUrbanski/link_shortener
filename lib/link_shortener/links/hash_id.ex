@@ -11,11 +11,11 @@ defmodule LinkShortener.HashId do
 
   @doc "Converts/accepts a value that has been directly placed into the ecto struct after a changeset"
   def dump(value) when is_binary(value), do: {:ok, value}
-  def dump(value) , do: {:error, "#{value} is not a string"}
+  def dump(value), do: {:error, "#{value} is not a string"}
 
   @doc "Converts a value from the database into the HashId type"
   def load(value) when is_binary(value), do: {:ok, value}
-  def load(value) , do: {:error, "#{value} is not a string"}
+  def load(value), do: {:error, "#{value} is not a string"}
 
   @doc "Callback invoked by autogenerate fields."
   def autogenerate do

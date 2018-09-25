@@ -4,7 +4,7 @@ defmodule LinkShortenerWeb.LinkController do
   alias LinkShortener.Links
   alias LinkShortener.Links.Link
 
-  action_fallback LinkShortenerWeb.FallbackController
+  action_fallback(LinkShortenerWeb.FallbackController)
 
   def index(conn, _params) do
     links = Links.list_links()

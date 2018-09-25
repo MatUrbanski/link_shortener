@@ -9,7 +9,7 @@ defmodule LinkShortener.Links.Link do
   @derive {Phoenix.Param, key: :hash}
 
   schema "links" do
-    field :url, :string
+    field(:url, :string)
 
     timestamps()
   end
