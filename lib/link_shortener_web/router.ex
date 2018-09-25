@@ -7,5 +7,6 @@ defmodule LinkShortenerWeb.Router do
 
   scope "/api", LinkShortenerWeb do
     pipe_through :api
+    resources "/links", LinkController, except: [:edit, :new]
   end
 end
