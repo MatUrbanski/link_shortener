@@ -116,7 +116,7 @@ defmodule LinkShortenerWeb.LinkControllerTest do
     end
   end
 
-  describe "delete link" do
+  describe "delete/2" do
     test "deletes chosen link", %{conn: conn} do
       link = create(:link)
       conn = delete(conn, link_path(conn, :delete, link))
@@ -131,6 +131,15 @@ defmodule LinkShortenerWeb.LinkControllerTest do
         end)
 
       assert {404, [_h | _t], "{\"errors\":{\"detail\":\"Not Found\"}}"} = response
+    end
+  end
+
+  describe "get_and_redirect/2" do
+    test "it redirects to external url", %{conn: conn} do
+      link = create(:link)
+      conn = get(conn, link_path(conn, :get_and_redirect, link.hash))
+
+      assert redirected_to(conn) == link.url
     end
   end
 end

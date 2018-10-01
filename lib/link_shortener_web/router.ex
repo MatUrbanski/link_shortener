@@ -9,4 +9,8 @@ defmodule LinkShortenerWeb.Router do
     pipe_through(:api)
     resources("/links", LinkController, except: [:edit, :new])
   end
+
+  scope "/", LinkShortenerWeb do
+    get "/:id", LinkController, :get_and_redirect
+  end
 end
