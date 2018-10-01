@@ -51,7 +51,8 @@ defmodule LinkShortenerWeb.LinkController do
   end
 
   def get_and_redirect(conn, %{"id" => id}) do
-    url = id
+    url =
+      id
       |> Links.get_link!()
       |> Map.get(:url)
 

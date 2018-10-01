@@ -11,6 +11,6 @@ defmodule LinkShortenerWeb.Router do
   end
 
   scope "/", LinkShortenerWeb do
-    get "/:id", LinkController, :get_and_redirect
+    get("/:id", LinkController, :get_and_redirect)
   end
 end
